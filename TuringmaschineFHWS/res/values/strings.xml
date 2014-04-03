@@ -43,7 +43,7 @@
         <item >Q5</item>
         <item >END</item>
     </string-array>
-    <string-array name="arrBit">
+    <string-array name="arrValue">
         <item >0</item>
         <item >1</item>
         <item >#</item>
@@ -53,7 +53,7 @@
         <item >R</item>
     </string-array>
         <string name="tvState">Zustand</string>
-        <string name="tvBit">Wert</string>
+        <string name="tvValue">Wert</string>
         <string name="tvVektor">Richtung</string>
 
 </resources>

@@ -24,11 +24,11 @@
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
-            android:id="@+id/txtBit"
+            android:id="@+id/txtValue"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/tvBit"
+            android:text="@string/tvValue"
             android:layout_weight="1"
             android:textColor="@android:color/holo_blue_light"
             android:textAppearance="?android:attr/textAppearanceMedium" />
@@ -64,7 +64,7 @@
             android:background="@drawable/picker_shape" />
 
         <NumberPicker
-            android:id="@+id/numberPickerBit"
+            android:id="@+id/numberPickerValue"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

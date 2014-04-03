@@ -9,8 +9,8 @@ package com.example.turingmaschine;
 
 public final class R {
     public static final class array {
-        public static final int arrBit=0x7f060001;
         public static final int arrState=0x7f060000;
+        public static final int arrValue=0x7f060001;
         public static final int arrVektor=0x7f060002;
     }
     public static final class attr {
@@ -42,6 +42,9 @@ public final class R {
         public static final int btnReset=0x7f09000a;
         public static final int btnStart=0x7f09000c;
         public static final int btnStepByStep=0x7f09000b;
+        public static final int cellLayoutDialogSpinner=0x7f09002e;
+        public static final int cellPickerValue=0x7f09002f;
+        public static final int cellValue=0x7f09002d;
         public static final int cell_1=0x7f090001;
         public static final int cell_2=0x7f090002;
         public static final int cell_3=0x7f090003;
@@ -49,7 +52,7 @@ public final class R {
         public static final int cell_5=0x7f090005;
         public static final int cell_6=0x7f090006;
         public static final int cell_7=0x7f090007;
-        public static final int editTextSaveFile=0x7f09002e;
+        public static final int editTextSaveFile=0x7f090032;
         public static final int lesekopf=0x7f090008;
         public static final int linearLayout1=0x7f09000e;
         public static final int linearLayout2=0x7f090013;
@@ -58,17 +61,18 @@ public final class R {
         public static final int linearLayout5=0x7f090022;
         public static final int linearLayout6=0x7f090027;
         public static final int linearLayoutBtn=0x7f090009;
-        public static final int linearLayoutDialogSpinner=0x7f090033;
-        public static final int linearLayoutDialogTxtView=0x7f09002f;
+        public static final int linearLayoutDialogCellView=0x7f09002c;
+        public static final int linearLayoutDialogSpinner=0x7f090037;
+        public static final int linearLayoutDialogTxtView=0x7f090033;
         public static final int linearLayoutTable=0x7f09000d;
         public static final int linearLayout_cells=0x7f090000;
-        public static final int listItemTmName=0x7f09002d;
-        public static final int listViewTM=0x7f09002c;
-        public static final int numberPickerBit=0x7f090035;
-        public static final int numberPickerState=0x7f090034;
-        public static final int numberPickerVektor=0x7f090036;
-        public static final int settingsLoad=0x7f090037;
-        public static final int settingsSave=0x7f090038;
+        public static final int listItemTmName=0x7f090031;
+        public static final int listViewTM=0x7f090030;
+        public static final int numberPickerState=0x7f090038;
+        public static final int numberPickerValue=0x7f090039;
+        public static final int numberPickerVektor=0x7f09003a;
+        public static final int settingsLoad=0x7f09003b;
+        public static final int settingsSave=0x7f09003c;
         public static final int state_1=0x7f090014;
         public static final int state_1_0=0x7f090015;
         public static final int state_1_1=0x7f090016;
@@ -93,16 +97,17 @@ public final class R {
         public static final int tableLegend=0x7f09000f;
         public static final int tableValueOne=0x7f090011;
         public static final int tableValueRaute=0x7f090012;
-        public static final int txtBit=0x7f090031;
-        public static final int txtState=0x7f090030;
-        public static final int txtVektor=0x7f090032;
+        public static final int txtState=0x7f090034;
+        public static final int txtValue=0x7f090035;
+        public static final int txtVektor=0x7f090036;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
-        public static final int list_dialog_layout=0x7f030001;
-        public static final int list_item_view=0x7f030002;
-        public static final int save_dialog_layout=0x7f030003;
-        public static final int table_dialog_layout=0x7f030004;
+        public static final int cell_dialog_layout=0x7f030001;
+        public static final int list_dialog_layout=0x7f030002;
+        public static final int list_item_view=0x7f030003;
+        public static final int save_dialog_layout=0x7f030004;
+        public static final int table_dialog_layout=0x7f030005;
     }
     public static final class menu {
         public static final int main=0x7f080000;
@@ -140,8 +145,8 @@ public final class R {
         public static final int toastFileSaved=0x7f050010;
         public static final int toastNoTM=0x7f050011;
         public static final int toastSelectedTM=0x7f050012;
-        public static final int tvBit=0x7f050021;
         public static final int tvState=0x7f050020;
+        public static final int tvValue=0x7f050021;
         public static final int tvVektor=0x7f050022;
     }
     public static final class style {

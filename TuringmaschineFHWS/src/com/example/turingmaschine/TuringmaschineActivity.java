@@ -13,7 +13,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.location.Location;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -53,13 +52,13 @@ public class TuringmaschineActivity extends Activity implements OnClickListener 
 			state_2_1, state_2_raute, state_3_0, state_3_1, state_3_raute,
 			state_4_0, state_4_1, state_4_raute, state_5_0, state_5_1,
 			state_5_raute;
-	protected TextView cell_1, cell_2, cell_3, cell_4, cell_5, cell_6, cell_7;
+	protected CheckedTextView cell_1, cell_2, cell_3, cell_4, cell_5, cell_6, cell_7;
 
 	ImageView readHead;
 	Animation readHeadAnimation;
 
-	private NumberPicker pickerState, pickerBit, pickerDirection;
-	String[] arrayAdapterState, arrayAdapterBit, arrayAdapterVektor;
+	private NumberPicker pickerState, pickerValue, pickerDirection;
+	String[] arrayAdapterState, arrayAdapterValue, arrayAdapterVektor;
 
 	private TextView[] textViewArray = new TextView[7];
 	private CheckedTextView[] checkedTextViewArray = new CheckedTextView[15];
@@ -68,7 +67,7 @@ public class TuringmaschineActivity extends Activity implements OnClickListener 
 	private int currentCell = 3;
 	private boolean stopBit = false;
 
-	CheckedTextView cellNumber;
+//	CheckedTextView tableCellNumber;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -84,13 +83,20 @@ public class TuringmaschineActivity extends Activity implements OnClickListener 
 		resetButton = (Button) findViewById(R.id.btnReset);
 		resetButton.setOnClickListener(this);
 
-		cell_1 = (TextView) findViewById(R.id.cell_1);
-		cell_2 = (TextView) findViewById(R.id.cell_2);
-		cell_3 = (TextView) findViewById(R.id.cell_3);
-		cell_4 = (TextView) findViewById(R.id.cell_4);
-		cell_5 = (TextView) findViewById(R.id.cell_5);
-		cell_6 = (TextView) findViewById(R.id.cell_6);
-		cell_7 = (TextView) findViewById(R.id.cell_7);
+		cell_1 = (CheckedTextView) findViewById(R.id.cell_1);
+		cell_1.setOnClickListener(this);
+		cell_2 = (CheckedTextView) findViewById(R.id.cell_2);
+		cell_2.setOnClickListener(this);
+		cell_3 = (CheckedTextView) findViewById(R.id.cell_3);
+		cell_3.setOnClickListener(this);
+		cell_4 = (CheckedTextView) findViewById(R.id.cell_4);
+		cell_4.setOnClickListener(this);
+		cell_5 = (CheckedTextView) findViewById(R.id.cell_5);
+		cell_5.setOnClickListener(this);
+		cell_6 = (CheckedTextView) findViewById(R.id.cell_6);
+		cell_6.setOnClickListener(this);
+		cell_7 = (CheckedTextView) findViewById(R.id.cell_7);
+		cell_7.setOnClickListener(this);
 
 		state_1_0 = (CheckedTextView) findViewById(R.id.state_1_0);
 		state_1_0.setOnClickListener(this);
@@ -149,9 +155,43 @@ public class TuringmaschineActivity extends Activity implements OnClickListener 
 			startTM();
 			break;
 		case R.id.btnReset:
+			// TODO: more professional solution is required for Reset-Button!!!
 			Intent intent = new Intent(this, TuringmaschineActivity.class);
 			startActivity(intent);
 			break;
+			
+			/** ============= Cell ============= */
+
+		case R.id.cell_1:
+			cellDialog(cell_1);
+			break;
+			
+		case R.id.cell_2:
+			cellDialog(cell_2);
+			break;
+			
+		case R.id.cell_3:
+			cellDialog(cell_3);
+			break;
+			
+		case R.id.cell_4:
+			cellDialog(cell_4);
+			break;
+			
+		case R.id.cell_5:
+			cellDialog(cell_5);
+			break;
+			
+		case R.id.cell_6:
+			cellDialog(cell_6);
+			break;
+			
+		case R.id.cell_7:
+			cellDialog(cell_7);
+			break;
+			
+			/** ============= Table ============= */
+			
 		case R.id.state_1_0:
 			tableDialog(state_1_0);
 			break;
@@ -335,7 +375,49 @@ public class TuringmaschineActivity extends Activity implements OnClickListener 
 		} // end !if equals END
 	}
 
-	private void tableDialog(final CheckedTextView cellNumber) {
+	private void cellDialog(final CheckedTextView cellNumber) {
+
+		final AlertDialog.Builder builder = new AlertDialog.Builder(
+				new ContextThemeWrapper(this, android.R.style.Animation_Dialog));
+		final LayoutInflater inflater = (LayoutInflater) this
+				.getSystemService(LAYOUT_INFLATER_SERVICE);
+
+		final View dialogView = inflater.inflate(R.layout.cell_dialog_layout,
+				null);
+		arrayAdapterValue = getResources().getStringArray(R.array.arrValue);
+		pickerValue = (NumberPicker) dialogView
+				.findViewById(R.id.cellPickerValue);
+
+		pickerValue.setMaxValue(arrayAdapterValue.length - 1);
+		pickerValue.setDisplayedValues(arrayAdapterValue);
+		pickerValue.setMinValue(0);
+		pickerValue
+				.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
+
+		builder.setView(dialogView);
+
+		builder.setPositiveButton(R.string.btnOk,
+				new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int which) {
+							cellNumber.setText(arrayAdapterValue[pickerValue
+									.getValue()]);
+					}
+				});
+		builder.setNegativeButton(R.string.btnCancel,
+				new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+
+						dialog.dismiss();
+
+					}
+				});
+		AlertDialog alertDialog = builder.create();
+		alertDialog.show();
+	}
+	
+	private void tableDialog(final CheckedTextView tableCellNumber) {
 
 		final AlertDialog.Builder builder = new AlertDialog.Builder(
 				new ContextThemeWrapper(this, android.R.style.Animation_Dialog));
@@ -345,12 +427,12 @@ public class TuringmaschineActivity extends Activity implements OnClickListener 
 		final View dialogView = inflater.inflate(R.layout.table_dialog_layout,
 				null);
 		arrayAdapterState = getResources().getStringArray(R.array.arrState);
-		arrayAdapterBit = getResources().getStringArray(R.array.arrBit);
+		arrayAdapterValue = getResources().getStringArray(R.array.arrValue);
 		arrayAdapterVektor = getResources().getStringArray(R.array.arrVektor);
 		pickerState = (NumberPicker) dialogView
 				.findViewById(R.id.numberPickerState);
-		pickerBit = (NumberPicker) dialogView
-				.findViewById(R.id.numberPickerBit);
+		pickerValue = (NumberPicker) dialogView
+				.findViewById(R.id.numberPickerValue);
 		pickerDirection = (NumberPicker) dialogView
 				.findViewById(R.id.numberPickerVektor);
 
@@ -360,10 +442,10 @@ public class TuringmaschineActivity extends Activity implements OnClickListener 
 		pickerState
 				.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
 
-		pickerBit.setMaxValue(arrayAdapterBit.length - 1);
-		pickerBit.setDisplayedValues(arrayAdapterBit);
-		pickerBit.setMinValue(0);
-		pickerBit
+		pickerValue.setMaxValue(arrayAdapterValue.length - 1);
+		pickerValue.setDisplayedValues(arrayAdapterValue);
+		pickerValue.setMinValue(0);
+		pickerValue
 				.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
 
 		pickerDirection.setMaxValue(arrayAdapterVektor.length - 1);
@@ -379,15 +461,15 @@ public class TuringmaschineActivity extends Activity implements OnClickListener 
 					public void onClick(DialogInterface dialog, int which) {
 						if (!arrayAdapterState[pickerState.getValue()]
 								.equals("END")) {
-							cellNumber.setText(arrayAdapterState[pickerState
+							tableCellNumber.setText(arrayAdapterState[pickerState
 									.getValue()]
 									+ ", "
-									+ arrayAdapterBit[pickerBit.getValue()]
+									+ arrayAdapterValue[pickerValue.getValue()]
 									+ ", "
 									+ arrayAdapterVektor[pickerDirection
 											.getValue()]);
 						} else {
-							cellNumber.setText(arrayAdapterState[pickerState
+							tableCellNumber.setText(arrayAdapterState[pickerState
 									.getValue()]);
 						}
 					}
