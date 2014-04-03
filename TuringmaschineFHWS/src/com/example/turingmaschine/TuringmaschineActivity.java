@@ -13,6 +13,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.location.Location;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -502,24 +503,26 @@ public class TuringmaschineActivity extends Activity implements OnClickListener 
 		alertDialog.show();
 	}
 	
-	// TODO: implement this method!
-//	private float getStepLength(){
-//		float stepLength = 0;
-//		return stepLength;
-//	}
+	private float getStepLength(){
+		float xCell_1 = cell_1.getX();
+		float xCell_2 = cell_2.getX();
+		return xCell_2-xCell_1;
+	} 	
 	
 	private void moveToLeft() {
 
+		getStepLength();
+		
 		float currentPosition = getCurrentX();
 
 		TranslateAnimation animation = new TranslateAnimation(currentPosition,
-				(currentPosition - 93.0f), 0.0f, 0.0f); // new TranslateAnimation(xFrom,xTo,
+				(currentPosition - getStepLength()), 0.0f, 0.0f); // new TranslateAnimation(xFrom,xTo,
 											// yFrom,yTo)
 		animation.setDuration(2000); // animation duration
 		animation.setFillAfter(true);
 
 		readHead.startAnimation(animation); // start animation
-		setCurrentX(currentPosition - 93.0f);
+		setCurrentX(currentPosition - getStepLength());
 
 	}
 
@@ -528,13 +531,13 @@ public class TuringmaschineActivity extends Activity implements OnClickListener 
 		float currentPosition = getCurrentX();
 
 		TranslateAnimation animation = new TranslateAnimation(currentPosition,
-				(currentPosition + 93.0f), 0.0f, 0.0f); // new TranslateAnimation(xFrom,xTo,
+				(currentPosition + getStepLength()), 0.0f, 0.0f); // new TranslateAnimation(xFrom,xTo,
 		// yFrom,yTo)
 		animation.setDuration(2000); // animation duration
 		animation.setFillAfter(true);
 
 		readHead.startAnimation(animation); // start animation
-		setCurrentX(currentPosition + 93.0f);
+		setCurrentX(currentPosition + getStepLength());
 	}
 
 	private void createLocalFile(String filename) throws IOException {
