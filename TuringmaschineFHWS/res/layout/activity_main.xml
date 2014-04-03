@@ -1,0 +1,445 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_application"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".TuringmaschineActivity" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout_cells"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" >
+
+        <TextView
+            android:id="@+id/cell_1"
+            style="@style/btnText"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/cell"
+            android:gravity="center"
+            android:text="@string/cell_0"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/cell_2"
+            style="@style/btnText"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/cell"
+            android:gravity="center"
+            android:text="@string/cell_0"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/cell_3"
+            style="@style/btnText"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/cell"
+            android:gravity="center"
+            android:text="@string/cell_0"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/cell_4"
+            style="@style/btnText"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/cell"
+            android:gravity="center"
+            android:text="@string/cell_0"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/cell_5"
+            style="@style/btnText"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/cell"
+            android:gravity="center"
+            android:text="@string/cell_0"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/cell_6"
+            style="@style/btnText"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/cell"
+            android:gravity="center"
+            android:text="@string/cell_0"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/cell_7"
+            style="@style/btnText"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/cell"
+            android:gravity="center"
+            android:text="@string/cell_0"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/lesekopf"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/lesekopf"
+        tools:ignore="ContentDescription" />
+
+    <LinearLayout
+        android:id="@+id/linearLayoutBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:weightSum="3" >
+
+        <Button
+            android:id="@+id/btnReset"
+            style="@style/btnText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/btn_orange"
+            android:text="@string/btnReset" />
+
+        <Button
+            android:id="@+id/btnStepByStep"
+            style="@style/btnText"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/btn_orange"
+            android:text="@string/btnStepByStep" />
+
+        <Button
+            android:id="@+id/btnStart"
+            style="@style/btnText"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/btn_orange"
+            android:text="@string/btnStart" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutTable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/lesekopf"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="4" >
+
+            <TextView
+                android:id="@+id/tableLegend"
+                style="@style/btnText"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.7"
+                android:background="@drawable/legend_cell_shape"
+                android:gravity="center"
+                android:text="@string/tableLegend"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/tablValueZero"
+                style="@style/btnText"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.1"
+                android:background="@drawable/legend_cell_shape"
+                android:gravity="center"
+                android:text="@string/cell_0"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tableValueOne"
+                style="@style/btnText"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.1"
+                android:background="@drawable/legend_cell_shape"
+                android:gravity="center"
+                android:text="@string/cell_1"
+                android:textSize="14sp" />
+            <TextView
+                android:id="@+id/tableValueRaute"
+                style="@style/btnText"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.1"
+                android:background="@drawable/legend_cell_shape"
+                android:gravity="center"
+                android:text="@string/cell_raute"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="4" >
+
+            <TextView
+                android:id="@+id/state_1"
+                style="@style/btnText"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.7"
+                android:background="@drawable/legend_cell_shape"
+                android:gravity="center"
+                android:text="@string/state_1"
+                android:textSize="14sp" />
+
+            <CheckedTextView
+                android:id="@+id/state_1_0"
+                style="@style/btnText"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.1"
+                android:background="@drawable/cell_shape"
+                android:gravity="center"
+                android:text="@string/state_1_0"
+                android:textSize="14sp" />
+
+            <CheckedTextView
+                android:id="@+id/state_1_1"
+                style="@style/btnText"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.1"
+                android:background="@drawable/cell_shape"
+                android:gravity="center"
+                android:text="@string/state_1_1"
+                android:textSize="14sp" />
+            <CheckedTextView
+                android:id="@+id/state_1_raute"
+                style="@style/btnText"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.1"
+                android:background="@drawable/cell_shape"
+                android:gravity="center"
+                android:text="@string/state_1_raute"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="4" >
+
+            <TextView
+                android:id="@+id/state_2"
+                style="@style/btnText"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.7"
+                android:background="@drawable/legend_cell_shape"
+                android:gravity="center"
+                android:text="@string/state_2"
+                android:textSize="14sp" />
+
+            <CheckedTextView
+                android:id="@+id/state_2_0"
+                style="@style/btnText"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.1"
+                android:background="@drawable/cell_shape"
+                android:gravity="center"
+                android:text="@string/state_1_0"
+                android:textSize="14sp" />
+
+            <CheckedTextView
+                android:id="@+id/state_2_1"
+                style="@style/btnText"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.1"
+                android:background="@drawable/cell_shape"
+                android:gravity="center"
+                android:text="@string/state_1_1"
+                android:textSize="14sp" />
+            <CheckedTextView
+                android:id="@+id/state_2_raute"
+                style="@style/btnText"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.1"
+                android:background="@drawable/cell_shape"
+                android:gravity="center"
+                android:text="@string/state_1_raute"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="4" >
+
+            <TextView
+                android:id="@+id/state_3"
+                style="@style/btnText"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.7"
+                android:background="@drawable/legend_cell_shape"
+                android:gravity="center"
+                android:text="@string/state_3"
+                android:textSize="14sp" />
+
+            <CheckedTextView
+                android:id="@+id/state_3_0"
+                style="@style/btnText"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.1"
+                android:background="@drawable/cell_shape"
+                android:gravity="center"
+                android:text="@string/state_1_0"
+                android:textSize="14sp" />
+
+            <CheckedTextView
+                android:id="@+id/state_3_1"
+                style="@style/btnText"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.1"
+                android:background="@drawable/cell_shape"
+                android:gravity="center"
+                android:text="@string/state_1_1"
+                android:textSize="14sp" />
+            <CheckedTextView
+                android:id="@+id/state_3_raute"
+                style="@style/btnText"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.1"
+                android:background="@drawable/cell_shape"
+                android:gravity="center"
+                android:text="@string/state_1_raute"
+                android:textSize="14sp" />
+        </LinearLayout>
+        
+        <LinearLayout
+            android:id="@+id/linearLayout5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="4" >
+
+            <TextView
+                android:id="@+id/state_4"
+                style="@style/btnText"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.7"
+                android:background="@drawable/legend_cell_shape"
+                android:gravity="center"
+                android:text="@string/state_4"
+                android:textSize="14sp" />
+
+            <CheckedTextView
+                android:id="@+id/state_4_0"
+                style="@style/btnText"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.1"
+                android:background="@drawable/cell_shape"
+                android:gravity="center"
+                android:text="@string/state_1_0"
+                android:textSize="14sp" />
+
+            <CheckedTextView
+                android:id="@+id/state_4_1"
+                style="@style/btnText"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.1"
+                android:background="@drawable/cell_shape"
+                android:gravity="center"
+                android:text="@string/state_1_1"
+                android:textSize="14sp" />
+            <CheckedTextView
+                android:id="@+id/state_4_raute"
+                style="@style/btnText"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.1"
+                android:background="@drawable/cell_shape"
+                android:gravity="center"
+                android:text="@string/state_1_raute"
+                android:textSize="14sp" />
+        </LinearLayout>
+        
+        <LinearLayout
+            android:id="@+id/linearLayout6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="4" >
+
+            <TextView
+                android:id="@+id/state_5"
+                style="@style/btnText"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.7"
+                android:background="@drawable/legend_cell_shape"
+                android:gravity="center"
+                android:text="@string/state_5"
+                android:textSize="14sp" />
+
+            <CheckedTextView
+                android:id="@+id/state_5_0"
+                style="@style/btnText"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.1"
+                android:background="@drawable/cell_shape"
+                android:gravity="center"
+                android:text="@string/state_1_0"
+                android:textSize="14sp" />
+
+            <CheckedTextView
+                android:id="@+id/state_5_1"
+                style="@style/btnText"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.1"
+                android:background="@drawable/cell_shape"
+                android:gravity="center"
+                android:text="@string/state_1_1"
+                android:textSize="14sp" />
+            <CheckedTextView
+                android:id="@+id/state_5_raute"
+                style="@style/btnText"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.1"
+                android:background="@drawable/cell_shape"
+                android:gravity="center"
+                android:text="@string/state_1_raute"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

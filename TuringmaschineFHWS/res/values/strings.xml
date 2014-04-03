@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Turingmaschine</string>
+    <string name="action_settings">Settings</string>
+    <string name="btnStart">Start</string>
+    <string name="btnReset">Reset</string>
+    <string name="btnStepByStep">Step</string>
+    <string name="btnOk">OK</string>
+    <string name="btnCancel">Cancel</string>
+    <string name="headerFilename">Unter welchen Namen wird gespeichert?</string>
+    <string name="headerLoadFile">Wähle eine Turingmaschine</string>
+    <string name="headerRemoveFile">Wähle die zu löschende Turingmaschine(n)</string>
+    <string name="hintSaveFile">Turingmaschine</string>
+    <string name="settingsSave">TM Speichern</string>
+    <string name="settingsLoad">TM Laden</string>
+    <string name="settingsRemove">TM Löschen</string>
+    <string name="settingsAbort">Abbrechen</string>
+    <string name="tableLegend">Q-n</string>
+    <string name="toastFileSaved">Turingmaschine wurde unter \"%s\" gespeichert</string>
+    <string name="toastNoTM">Bis jetzt noch keine Turingmaschine gespeichert</string>
+    <string name="toastSelectedTM">Die ausgewählte Turingmaschine: \"%s\"</string>
+    <string name="toastEndTM">Endbedingung erreicht!</string>
+    <string name="cell_0">0</string>
+    <string name="cell_1">1</string>
+    <string name="cell_raute">#</string>
+    <string name="nameTM">Turingmaschine</string>
+    <string name="state_1">Q1</string>
+    <string name="state_2">Q2</string>
+    <string name="state_3">Q3</string>
+    <string name="state_4">Q4</string>
+    <string name="state_5">Q5</string>
+    <string name="state_1_0">Q1, 1, L</string>
+    <string name="state_1_1">Q2, #, R</string>
+    <string name="state_1_raute">Q3, 0, R</string>
+    
+    
+    <string-array name="arrState">
+        <item >Q1</item>
+        <item >Q2</item>
+        <item >Q3</item>
+        <item >Q4</item>
+        <item >Q5</item>
+        <item >END</item>
+    </string-array>
+    <string-array name="arrBit">
+        <item >0</item>
+        <item >1</item>
+        <item >#</item>
+    </string-array>
+    <string-array name="arrVektor">
+        <item >L</item>
+        <item >R</item>
+    </string-array>
+        <string name="tvState">Zustand</string>
+        <string name="tvBit">Wert</string>
+        <string name="tvVektor">Richtung</string>
+
+</resources>
