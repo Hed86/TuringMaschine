@@ -13,10 +13,12 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.ContextThemeWrapper;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -72,7 +74,22 @@ public class TuringmaschineActivity extends Activity implements OnClickListener 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		
+		Display display = getWindowManager().getDefaultDisplay();
+		Point size = new Point();
+		display.getSize(size);
+		int width = size.x;
+		int height = size.y;
+		/** screen size of different devices:
+		 * 480 x 800 => Nexus S / One
+		 * 1080 x 1776 => Nexus 5*/
+		
+		if (width == 480 && height == 800) {
+			setContentView(R.layout.activity_main_nexus_s);
+		} else {
+			setContentView(R.layout.activity_main);
+		}
+		
 
 		readHead = (ImageView) findViewById(R.id.lesekopf);
 
